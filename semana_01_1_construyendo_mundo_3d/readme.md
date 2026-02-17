@@ -91,7 +91,9 @@ donde:
 - V es el número de vértices
 - E es el número de aristas únicas 
 - F es el número de caras
-En los datos recolectados se evidencia que en la malla seleccionada existen: 
+
+En los datos recolectados se evidencia que en la malla seleccionada existen:
+
 - 24461 vértices
 - 48918 caras
 - 73377 aristas únicas
@@ -104,6 +106,7 @@ Para continuar, se deben resaltar los elementos de la malla, esto con el fin de 
 | Caras        | Rojo brillante |
 | Aristas      | Negro          |
 | Vértices     | Cyan           |
+
 Ahora bien, acá se encuentra el [Código](#cambio_color_elementos) para cambiar los colores de la malla y se encuentra la [Visualización final.](#)
 
   
@@ -401,23 +404,14 @@ return (
 
   
 
-Lista los prompts utilizados con herramientas de IA generativa durante el desarrollo del taller (si aplica).
-
-  
-
-  
-
-### Ejemplos:
-
-  
-
+Lista de los prompts utilizados con herramientas de IA generativa durante el desarrollo del taller.
   
 
 ```
 
   
 
-"Crea un script en Python que detecte bordes usando el algoritmo de Canny"
+"Tengo una visualización de una malla 3d con python haciendo uso de la librería trimesh. El cargado del archivo se hace con trimesh.load_mesh(), hago lectura del numero de vertices haciendo uso de la función reservada del lenguaje len() y accediendo a la propiedad/atributo .vertices del modelo cargado. Haciendo uso de .visual.vertex_colors, cambio los colores de los vertices al definido en una lista con valores RGB. Ahora bien, necesito cambiar el color de aristas y caras ¿Cómo lo hago?"
 
   
 
@@ -597,7 +591,9 @@ semana_01_1_construyendo_mundo_3d/
 
 - Build website with threejs and react: https://medium.com/@wuzsamie/build-website-with-three-js-and-react-three-fiber-488c73e982dd
 
-  
+- What is react three drei: https://medium.com/@sekharsmemories/what-is-react-three-drei-bba258773053
+
+- Loading models react three fiber.docs: https://r3f.docs.pmnd.rs/tutorials/loading-models
   
 
 ---
