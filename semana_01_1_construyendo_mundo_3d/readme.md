@@ -119,22 +119,34 @@ Cuando el proyecto ya está configurado, se puede proceder a ejecutar el servido
 
 ```
 
----
+Ahora bien, en términos de desarrollo se pretende generar una interfaz sencilla que permita seleccionar con botones la visualización.
+![Visualizacion general](./media/visualizacion_general_three.png)
+Como se puede evidenciar en la imagen, existen cuatro botones que permiten seleccionar la visualización que el usuario desee, las visualizaciones disponibles son:
 
-  
+- General
+- Vertices
+- Aristas
+- Caras
 
-  
+El código que se usó para variar las visualizaciones se encuentra [aqui](#general_three).
+Como se logra evidenciar en la implementación, existen dos definiciones fundamentales modo y setModo. Además, existe la función cambiarModo, cada uno de los botones maneja un evento onclick (Recordando que javascript es un lenguaje orientado a eventos con el fin de ejecutar acciones) que llama a la función cambiarModo, al hacer esto se selecciona el modo de visualización con el fin de alternar entre una vista y la otra.
+
+Dentro del canvas, se indica la visualización que se tiene haciendo un condicional con el modo definido. 
+```javascript
+{modo === "general" && <ModelGeneral />}
+{modo === "vertices" && <ModelVertices />}
+{modo === "aristas" && <ModelAristas />}
+{modo === "caras" && <ModelCaras />}
+```
+Con esto se garantiza que la visualización se alterna según el botón presionado.
+Además, se generan archivos particulares para cada una de las visualizaciones, es posible desarrollarlo usando mejores practicas de programación y la reutilización de código. No obstante, para esta practica inicial se decidió desarrollarlo de esta manera con el fin de comprender los conceptos de una manera más apropiada. Es por ello que, hay cuatro archivos de visualización de modelos.
+
+---  
 
 ## Resultados visuales
-
-  
-
 A continuación, se muestran los resultados de la práctica en cada uno de los lenguajes y herramientas utilizadas para la visualización
 
-  
-
 ### Python - Implementación
-
 Primera visualización de una malla en formato .obj haciendo uso de python con trimesh
 
 ![Resultado Python 1](./media/visualizacion_trimesh_python_1.png)
@@ -161,20 +173,29 @@ Visualización del modelo .OBJ al ser cargado en la escena de unity.
 
 Visualización de la información de la malla haciendo uso de unity.
 
-  
-
-  
-
 ### Three.js - Implementación
 
-  
+<a id="resultados_three"></a>
+![Resultado three general](./media/visualizacion_general_three.png)
 
+Visualización general de la malla formato .OBJ desde la interfaz de threejs con vite y react.
+
+![Resultado three vertices](./media/visualizacion_vertices_three.png)
+![Resultado three vertices focus](./media/visualizacion_vertices_focues_three.png)
+
+Visualización general y enfocada de los vértices resaltados en color rojo.
+
+![Resultado three aristas](./media/visualizacion_aristas_three.png)
+![Resultado three aristas focus](./media/visualizacion_aristas_focus_three.png)
+
+Visualización general y enfocada de las aristas resaltados en color morado.
+
+![Resultado three caras](./media/visualizacion_caras_three.png)
+![Resultado three caras focus](./media/visualizacion_caras_focus_three.png)
+
+Visualización general y enfocada de las caras resaltados en color azul.
 
 ---
-
-  
-
-  
 
 ## Código relevante
 
@@ -279,21 +300,89 @@ public class MeshInfo : MonoBehaviour
   
 
 ### Ejemplo de código Three.js:
+<a id="general_three"></a>
+Código de la pantalla principal del proyecto con el fin de alternar las visualizaciones según el boton indicado.
 
-  
+```javascript
+import { useState } from 'react'
+import './App.css'
+import { Canvas } from "@react-three/fiber"
+import { OrbitControls } from "@react-three/drei"
+import ModelGeneral from "./model_general"
+import ModelVertices from './model_vertex'
+import ModelCaras from './model_caras'
+import ModelAristas from './model_aristas'
+
+function App() {
+	const [modo, setModo] = useState("general")
+
+	const cambiarModo = (visualizacion) => {
+		setModo(visualizacion)
+	}
+
+	return (
+		<>
+			<div className="general-container-mini">
+				<h1>Visualización de modelo .OBJ con vite y react</h1>
+
+				<div className="opciones">
+					<button onClick={() => cambiarModo("general")}>General</button>
+					<button onClick={() => cambiarModo("vertices")}>Vertices</button>
+					<button onClick={() => cambiarModo("aristas")}>Aristas</button>
+					<button onClick={() => cambiarModo("caras")}>Caras</button>
+				</div>
+
+				<h3>Visualización de: {modo}</h3>
+
+			</div>
+
+			<div className="general-container">
+
+				<Canvas camera={{
+					position: [0, 0, 40],  // aleja la cámara
+					fov: 30,
+					near: 0.1,
+					far: 1000
+				}}>
+					<ambientLight intensity={1} />
+					<directionalLight position={[0, 0, 0]} />
+						{modo === "general" && <ModelGeneral />}
+						{modo === "vertices" && <ModelVertices />}
+						{modo === "aristas" && <ModelAristas />}
+						{modo === "caras" && <ModelCaras />}
+					<OrbitControls />
+				</Canvas>
+			</div>
+		</>
+	)
+}
+
+export default App
+```
+<a id="modelo_three"></a>
+Código que se incrusta en un canvas con el fin de visualizar un modelo .OBJ.
+
+```javascript
+import { useLoader } from "@react-three/fiber"
+import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader"
+import modelo from "@media/FinalBaseMesh.obj"
+
+export default function ModelGeneral() {
+
+  const obj = useLoader(OBJLoader, modelo)
+
+  return (
+    <group position={[0, -11, 0]} scale={[1, 1, 1]}>
+      <primitive object={obj} />
+    </group>
+  )
+}
+
+```
+
 
 ---
-
-  
-
-  
-
 ## Prompts utilizados
-
-  
-
-  
-
 Lista de los prompts utilizados con herramientas de IA generativa durante el desarrollo del taller.
   
 
@@ -357,7 +446,7 @@ semana_01_1_construyendo_mundo_3d/
 ---
 ## Checklist de entrega
 
-- [x] Carpeta con nombre `semana_XX_Y_nombre_taller`
+- [x] Carpeta con nombre `semana_01_1_construyendo_mundo_3d`
 - [ ] Código limpio y funcional en carpetas por entorno
 - [x] GIFs/imágenes incluidos con nombres descriptivos en carpeta `media/`
 - [ ] README completo con todas las secciones requeridas
