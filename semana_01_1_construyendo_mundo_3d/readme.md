@@ -6,8 +6,7 @@
 - 💻Ingeniería de sistemas y compuitación💻
 
 ## Fecha de entrega
-`2026-02-20`
-
+`2026-02-21`
 ---
 ## Descripción breve
 En el presente taller se prentende comprender los concpetos básicos del renderizado de modelos 3d haciendo uso de varias herramientas de programación, como lo son: 

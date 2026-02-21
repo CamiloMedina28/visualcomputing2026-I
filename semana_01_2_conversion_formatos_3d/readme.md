@@ -6,7 +6,7 @@
 - 💻Ingeniería de sistemas y compuitación💻
 
 ## Fecha de entrega
-`2026-02-20`
+`2026-02-21`
 
 ---
 ## Descripción breve
@@ -29,7 +29,7 @@ Para comenzar con la implementación en python, la primer tarea que se desarroll
 
 este proceso es bastante sencilo y se detalló el proceso de su elaboración en la primera entrega de la misma semana, recordando, este proceso se hace haciendo uso del método .load() de trimesh, al especificar como argumento a la función una cadena de caracteres que contiene la ruta al modelo 3D que se pretende cargar.
 
-Una particularidad, al trabajar con modelos en formato .gltf es que es posible que de forma predeterminada la libria lo cargue como una instancia de la clase trimes.Scene, lo cual podria limitar las funcionalidades al ser un objeto de una clase diferente. Por lo anterior se debe [Convertir de un trimes.Scene a un model.](#conversion-trimesh-scene)
+Una particularidad, al trabajar con modelos en formato .gltf es que es posible que de forma predeterminada la libria lo cargue como una instancia de la clase trimes.Scene, lo cual podria limitar las funcionalidades al ser un objeto de una clase diferente. Por lo anterior se debe [Convertir de un trimesh.Scene a un model.](#conversion-trimesh-scene)
 
 Como se van a desarrollar diferentes análisis sobre los modelos que se transforman en diferentes extensiones de archivo, se genera un marco de trabajo de reutilización de código, basado en las buenas prácticas del desarrollo de software general. Se crea una función denominada [mesh_stats](#mesh-stats) la cual permite el análisis de los elementos de un modelo que es pasado a la función como argumento, esta función retorna una lista que indica:
 - Número de vértices del modelo.
@@ -232,7 +232,7 @@ for filename, data in modelo_obj_a_gltf_data.items():
 ```
 
 
-### Ejemplo de código Unity (C#):
+### Ejemplo de código three js (JavaScript):
 
 ---
 ## Prompts utilizados
@@ -293,9 +293,9 @@ semana_01_1_construyendo_mundo_3d/
 ## Checklist de entrega
 
 - [x] Carpeta con nombre `semana_01_2_conversion_formatos_3d`
-- [ ] Código limpio y funcional en carpetas por entorno
-- [ ] GIFs/imágenes incluidos con nombres descriptivos en carpeta `media/`
-- [ ] README completo con todas las secciones requeridas
+- [x] Código limpio y funcional en carpetas por entorno
+- [x] GIFs/imágenes incluidos con nombres descriptivos en carpeta `media/`
+- [x] README completo con todas las secciones requeridas
 - [x] Mínimo 2 capturas/GIFs por implementación
 - [x] Commits descriptivos en inglés
 - [x] Repositorio organizado y público
