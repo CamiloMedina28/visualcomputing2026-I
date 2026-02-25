@@ -69,8 +69,8 @@ Con lo anterior en mente, se puede escribir el código necesario para la generac
  - [Resultados visuales]()
 
 
-
 ### Three js
+En esta sección se desarrolla la creación de un proyecto en react con vite, threejs y javascript de modo que se permite la visualización de los tres modelos con los que se trabajaron en python en todos los formatos de archivo posibles, esta sección se construye después de la practica en python para tener la facilidad de poseer todos los archivos en todos los posibles formatos.
 
 ---  
 
@@ -126,10 +126,6 @@ Origen de .stl a .obj en .png y .gif
 
 Tabla de resultados con orign desde .obj a .stl y .gltf
 ![Tabla de resultados conversion desde obj a stl y gltf](./media/results/tabla_origin_stl.png)
-
-
-
-
 
 
 ### Three.js - Implementación
