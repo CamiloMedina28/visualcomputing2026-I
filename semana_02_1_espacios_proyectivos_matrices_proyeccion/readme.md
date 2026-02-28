@@ -1,7 +1,13 @@
 # Taller Espacios Proyectivos Matrices Proyeccion ✨👩‍🎤
 
 ## Nombre del estudiante
-- Camilo Andrés Medina Sánchez
+- Camilo Andrés Medina Sánchez 
+- Manuel Santiago Mori Ardila
+- Cristian Steven Motta Ojeda
+- Brayan Alejandro, Muñoz Pérez 
+- Carlos Arturo Murcia Andrade
+- Maicol Sebastián Olarte Ramírez
+
 - 🏫 Universidad Nacional De Colombia 🏫
 - 💻Ingeniería de sistemas y compuitación💻
 
@@ -95,11 +101,16 @@ La implemenbtación en three js, que es bastante sencilla, busca la creación de
 - Cubo
 - Pirámide con base circular
 Desde la interfaz hay un botón sencillo que permite alternar entre cada uno de los modos de las cámaras. 
-A continuación se [referencia el código que permitió esto](implementacion-threejs).
+A continuación se [referencia el código que permitió esto](#implementacion-threejs).
+Esta implementaciónse apoya de Orbit Controls que permite alternar entre los tipos de camaras.
+A continuación se [referencias los resultados de visualizacion](#Visualización-perspectiva-horizonte)
 
+En estos se puede ver como en la visualización con cámara en modo de perspectiva se permiten identyificar profundidades, mientras que en la ortogonal, se tiene una proyección en donde los objetos son del mismo tamaño y no es fácil determinar profundidades.
 
 ### Unity
 Desde la implementación en únity se plantea la [creación de cinco cubos](#creacion-cubos) alineados en el eje z con el fin de diferenciar las visualización con una cámara en modo perspective y una en modo orthographic.
+Como primera medidad se varia el valor de FOV, [Las siguientes imagenes reflejan los resultados.](#Visualización-FOV).
+Como se identifica en las imagenes, a medida que aumenta el FOV los objetos tienden a distanciarse. Además se visualizan los cinco cubos en cámara [ortogonal](#Visualización-camara-orto-unity) en la cual se identifica que los objetos tienden a estar en segunda dimensión, al ser proyectados sobre un plano XY, como ya se menciona en la sección superior.
 
 ---  
 
@@ -143,7 +154,7 @@ Visualización desde una camara en modo ortográfica
 <a id="creacion-cubos"></a>
 Creación de cinco cubos alineados en z
 ![Resultado Unity 1](./media/unity/creacion_cubos_alineados.png)
-<a id="Visualización-ortogonal-horizonte"></a>
+<a id="Visualización-FOV"></a>
 **Cámara en modo perspective con diferentes valores de fov**
 *fov30*
 ![Resultado Unity 1](./media/unity/fov30.png)
@@ -270,26 +281,31 @@ import { OrbitControls, PerspectiveCamera, OrthographicCamera } from '@react-thr
 ---
 ## Aprendizajes y dificultades
 
-Reflexión personal sobre el proceso de desarrollo del taller en 2-3 párrafos.
-
-
 ### Aprendizajes
 
-¿Qué aprendiste o reforzaste con este taller? ¿Qué conceptos técnicos quedaron más claros?  
+Durante el desarrollo del taller se reforzó el uso de matrices de transformación para comprender como cambian las perspectivas de los objetos 3d. También se afianzó la diferencia conceptual entre una cámara ortográfica y una cámara en perspectiva en entornos gráficos como Python, Three.js y Unity
+
 
 ### Dificultades
 
-¿Qué parte fue más compleja o desafiante? ¿Cómo lo resolviste?  
+En la sección de python se describe el desarrollo matemático de estas matrices, una de las principales dificultades fue trasladar el concepto matemático a los motores gráficos. En Three.js y Unity la cámara ya implementa internamente las matrices de proyección, por lo que fue necesario entender qué parámetros correspondían a cada componente teórica (como FOV o zoom) para poder relacionar correctamente la implementación con el modelo matemático estudiado.
 
 ### Mejoras futuras
 
-¿Qué mejorarías o qué aplicarías en futuros proyectos?
+En futuros proyectos se podría profundizar en la implementación manual completa de la matriz de proyección en un pipeline gráfico propio, incluyendo transformaciones de vista y modelo para comprender mejor el flujo completo de renderizado. También sería útil incorporar visualizaciones interactivas que permitan modificar en tiempo real parámetros como la distancia focal o el plano cercano y lejano para analizar su impacto de forma más dinámica.
 
 ---
 
 ## Contribuciones grupales (si aplica)
 
-
+| Integrante | Rol |
+|---|---|
+| Camilo Andrés Medina Sánchez | Implementación de la escena Unity y configuración de objetos |
+| Manuel Santiago Mori Ardila | Desarrollo del script CameraController en Unity |
+| Cristian Steven Motta Ojeda | Implementación del visor Three.js y componente CameraController |
+| Brayan Alejandro Muñoz Pérez | Diseño del panel de controles y estilos CSS |
+| Carlos Arturo Murcia Andrade | Pruebas, capturas de resultados y documentación |
+| Maicol Sebastián Olarte Ramírez | Integración general y redacción del README |
 
 ---
 ## Estructura del proyecto
